@@ -1,0 +1,21 @@
+Received command: 'START_TRIAL:{"states": {"wait_...' from 192.168.1.2
+Trial parameters validated. Starting FSM...
+[MockGPIO] LED Center ON
+Trial started - Task: simpleConditioning, Reward side: R
+update Thread Started
+[MockGPIO] LED Center OFF
+Exception in thread Thread-22 (fsm_update_loop):
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pi/closed_loop_behavior/src/pi_main/controller_test_2.py", line 68, in fsm_update_loop
+    trial_instance.update()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/pi/closed_loop_behavior/src/pi_main/trial_state_machine.py", line 149, in update
+    if self.audio_completed:
+       ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TrialStateMachine' object has no attribute 'audio_completed'
